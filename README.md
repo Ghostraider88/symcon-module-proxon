@@ -28,6 +28,9 @@ https://github.com/DEIN-USER/DEIN-REPO
 Alle verbindlichen Struktur- und Codiervorgaben für die Modulentwicklung stehen in
 [`CLAUDE.md`](CLAUDE.md). Diese Datei dient zugleich als Kontext für Claude Code.
 
+Optionale Ausbauideen für das Template (kein verbindliches Regelwerk) sammelt
+[`docs/template-backlog.md`](docs/template-backlog.md).
+
 ## Lizenz
 
 [MIT / nach Wahl eintragen]

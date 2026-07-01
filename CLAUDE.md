@@ -180,7 +180,81 @@ class MyModule extends IPSModuleStrict
 
 ---
 
-## 6. form.json (Konfigurationsseite, optional)
+## 6. Variable Presentations (statt klassischer Profile, ab Symcon 8.0/8.1)
+
+Moderne Module nutzen **keine** klassischen Variablenprofile mehr, sondern **Variable
+Presentations**: ein Array, das als 4. Parameter an `MaintainVariable(...)` übergeben wird
+(bzw. per `IPS_SetVariableCustomPresentation`). Dies ist die häufigste Fehlerquelle bei
+neuen Modulen – die folgenden Regeln haben in der Praxis je 1–2 Builds gekostet.
+
+### Grundtypen (Konstante → GUID)
+
+| Konstante | GUID | Zweck |
+|-----------|------|-------|
+| `VARIABLE_PRESENTATION_SWITCH` | `{60AE6B26-B3E2-BDB1-A3A1-BE232940664B}` | Boolean-Schalter |
+| `VARIABLE_PRESENTATION_ENUMERATION` | `{52D9E126-D7D2-2CBB-5E62-4CF7BA7C5D82}` | Auswahl-Buttons – **nur mit `EnableAction`** |
+| `VARIABLE_PRESENTATION_VALUE_PRESENTATION` | `{3319437D-7CDE-699D-750A-3C6A3841FA75}` | Wertedarstellung (Anzeige + optionale Wert-Optionen) |
+| `VARIABLE_PRESENTATION_VALUE_INPUT` | `{6F477326-1683-A2FD-D2E7-477F366ECB62}` | Werteingabe (Zahlenfeld) |
+| `VARIABLE_PRESENTATION_SLIDER` | `{6B9CAEEC-5958-C223-30F7-BD36569FC57A}` | Schieberegler |
+
+### Fallstricke (verbindlich beachten)
+
+- **`PRESENTATION` und `TEMPLATE` sind ZWEI getrennte Schlüssel.** Ein Slider mit
+  Farbverlauf (z.B. Raumtemperatur) entsteht **nur**, wenn beide gesetzt sind. Die
+  TEMPLATE-GUID gehört **nicht** in den `PRESENTATION`-Schlüssel – sonst wird die Variable
+  fälschlich zu einem Eingabefeld statt zum Slider:
+  ```php
+  [
+      'PRESENTATION' => VARIABLE_PRESENTATION_SLIDER,
+      'TEMPLATE'     => VARIABLE_TEMPLATE_SLIDER_ROOM_TEMPERATURE, // Farbverlauf
+      'MIN' => 16, 'MAX' => 31, 'STEP_SIZE' => 0.5, 'SUFFIX' => ' °C', 'DIGITS' => 1
+  ]
+  ```
+- **Templates zeigen Einheiten nicht zwingend an.** Manche `VARIABLE_TEMPLATE_*` rendern
+  den Zahlenwert **ohne** Einheit (kWh/°C …). Für zuverlässige Einheiten-Anzeige lieber
+  `VARIABLE_PRESENTATION_VALUE_PRESENTATION` mit **explizitem** `ICON`, `SUFFIX`, `DIGITS`,
+  `MIN`, `MAX` bauen, statt sich auf ein Template zu verlassen.
+- **`ENUMERATION` braucht `EnableAction`.** Für reine Anzeige-Variablen (kein Schalten) ist
+  Aufzählung nicht zulässig ("Diese Darstellung ist nur für Variablen mit einer
+  Variablenaktion verfügbar"). Dann `VALUE_PRESENTATION` mit `OPTIONS` verwenden.
+- **`VALUE_PRESENTATION`-`OPTIONS` erwarten typgenaue `Value`-Einträge.** Bei einer
+  String-Variable müssen die `Value`-Felder Strings sein, bei Integer Integer – sonst matcht
+  die Anzeige nicht.
+- **`OPTIONS`-Zeilen brauchen `IconActive` + `IconValue`** (nicht nur ein `Icon`-Feld),
+  sonst meldet der Editor "Undefined array key IconActive". Für Icon **und** Beschriftung
+  zusätzlich `DISPLAY => 2` (Caption and Icon) und `LAYOUT => 1` (Row) setzen.
+
+### Diagnose-Technik: GUI-Konfiguration 1:1 in Code übernehmen
+
+Der zuverlässigste Weg zur korrekten Presentation: die Variable **einmal von Hand im
+Symcon-GUI** perfekt einstellen (Icon, Farbe, Suffix …), dann die aufgelöste Konfiguration
+auslesen und 1:1 in den Code übernehmen.
+
+- `IPS_GetVariablePresentation(int $varID)` → liefert den **vollständig aufgelösten** Zustand
+  inkl. `TEMPLATE`, `GRADIENT_TYPE`, `USAGE_TYPE`, `ICON` … **Diese Funktion nutzen.**
+- `IPS_GetPresentation(string $guid)` → erwartet eine **GUID**, nicht eine Variablen-ID.
+- `IPS_GetVariable($varID)['VariablePresentation']` zeigt den **`TEMPLATE`-Schlüssel NICHT** –
+  zwei unterschiedliche Zustände wirken hier identisch. Nicht zur Diagnose verwenden.
+
+Dump-Skript (in eine PHP-Skript-Instanz einfügen, `$InstanceID` setzen):
+```php
+foreach (IPS_GetChildrenIDs($InstanceID) as $childID) {
+    if (!IPS_VariableExists($childID)) { continue; }
+    $obj = IPS_GetObject($childID);
+    echo '=== ' . $obj['ObjectIdent'] . ' (ID ' . $childID . ") ===\n";
+    echo json_encode(IPS_GetVariablePresentation($childID), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n\n";
+}
+```
+
+### Presentation zur Laufzeit ändern
+
+`IPS_SetVariableCustomPresentation($varID, $presentationArray)` ändert eine Presentation
+dynamisch – z.B. den Slider-Bereich (`MIN`/`MAX`) je nach Betriebsmodus, wenn das Gerät
+laut API pro Modus unterschiedliche Grenzen unterstützt.
+
+---
+
+## 7. form.json (Konfigurationsseite, optional)
 
 Drei optionale Bereiche – jeden nur definieren, wenn er sichtbar sein soll:
 
@@ -207,7 +281,7 @@ https://www.symcon.de/de/service/dokumentation/entwicklerbereich/sdk-tools/sdk-p
 
 ---
 
-## 7. locale.json (Übersetzungen, optional, ab 4.1)
+## 8. locale.json (Übersetzungen, optional, ab 4.1)
 
 Übersetzt `caption`/`label` der Konfigurationsseite. Konvention: **Modul auf Englisch
 bauen, ins Deutsche übersetzen.** Abstufende Kürzel möglich (`de`, `de_DE`, `de_CH` …).
@@ -224,7 +298,7 @@ bauen, ins Deutsche übersetzen.** Abstufende Kürzel möglich (`de`, `de_DE`, `
 
 ---
 
-## 8. Verbindliche Best Practices (Symcon-Konvention)
+## 9. Verbindliche Best Practices (Symcon-Konvention)
 
 **Generelle Entwicklung**
 - Module auf Englisch entwickeln, per locale.json übersetzen.
@@ -269,7 +343,7 @@ bauen, ins Deutsche übersetzen.** Abstufende Kürzel möglich (`de`, `de_DE`, `
 
 ---
 
-## 9. Häufig genutzte SDK-Funktionen (Cheat Sheet)
+## 10. Häufig genutzte SDK-Funktionen (Cheat Sheet)
 
 **Properties** (Nutzer-Konfiguration, in Create registrieren, in form.json als element):
 `RegisterPropertyBoolean/Integer/Float/String(name, default)` →
@@ -304,16 +378,123 @@ https://www.symcon.de/de/service/dokumentation/entwicklerbereich/sdk-tools/sdk-p
 
 ---
 
-## 10. Tests & Code-Style (CI)
+## 11. Wiederverwendbare Code-Muster
+
+Bewährte Muster aus realen Cloud-Anbindungs-Modulen (Splitter + Konfigurator + Gerät).
+
+### 11.1 `chunkedDebug()` – lange Rohantworten vollständig loggen
+
+`SendDebug()` schneidet lange Einzelnachrichten ab. Für vollständige JSON-Dumps splitten:
+```php
+private function chunkedDebug(string $sender, string $text, int $chunkSize = 3000): void
+{
+    $chunks = str_split($text, $chunkSize) ?: [''];
+    foreach ($chunks as $i => $chunk) {
+        $this->SendDebug($sender . ' (' . ($i + 1) . '/' . count($chunks) . ')', $chunk, 0);
+    }
+}
+```
+
+### 11.2 API-Diagnose-Button – übersehene API-Felder finden
+
+Ein Test-Button (actions-Bereich), der alle relevanten Endpunkte abruft, Rohantworten via
+`chunkedDebug` loggt und meldet, welche gelieferten Felder aktuell **nicht** ausgewertet
+werden. Muster: Liste der bereits genutzten Feldnamen pflegen und die Antwort dagegen
+diffen – deckt zuverlässig fehlende Felder und falsche Annahmen auf.
+
+### 11.3 Debounce für schnelle Schieberegler-Änderungen
+
+Wiederholtes Ziehen darf nicht jeden Zwischenwert an die Cloud senden. Wert optimistisch
+sofort lokal setzen, echtes Senden per Timer verzögern:
+```php
+// In Create(): RegisterTimer('FlushSetTemperature', 0, 'PREFIX_FlushSetTemperature($_IPS[\'TARGET\']);');
+case 'SetTemperature':
+    $this->SetValue('SetTemperature', $value);                 // optimistisch sofort
+    $this->SetBuffer('PendingSetTemperature', (string) $value);
+    $this->SetTimerInterval('FlushSetTemperature', 1000);      // erst nach Ruhe senden
+    break;
+```
+
+### 11.4 Optimistisch setzen, beim nächsten Poll bestätigen
+
+Nach einem Schaltbefehl den Wert **sofort lokal** setzen, aber **keinen** Sofort-Poll
+auslösen. Die Cloud übernimmt oft verzögert; ein sofortiger Status-Abruf würde den neuen
+Wert mit dem alten Cloud-Stand überschreiben.
+
+### 11.5 Konfigurator: Timing der Parent-Verbindung
+
+`IPS_GetInstance($id)['ConnectionID']` ist in `ApplyChanges()` teils noch `0`, weil Symcon
+die automatische Verbindung zum kompatiblen Gateway **erst danach** herstellt – der Status
+bliebe sonst fälschlich auf "keine Verbindung". Lösung: den Status **zusätzlich** in
+`GetConfigurationForm()` neu prüfen (läuft immer, wenn der Nutzer die Seite öffnet).
+> Alternative (vor Nutzung in der offiziellen Doku gegenprüfen): auf `IM_CONNECT`/
+> `IM_DISCONNECT` via `RegisterMessage` + `MessageSink` reagieren. Eine undefinierte
+> Konstante führt zum Fatal Error beim Modul-Laden.
+
+### 11.6 Konfigurator-`create`: automatische Parent-Verbindung
+
+Ein Einzelobjekt-`create` verbindet die neue Instanz automatisch mit dem Eltern-Splitter des
+Konfigurators – kein manuelles `ConnectParent` nötig:
+```php
+'create' => [
+    'moduleID'      => self::DEVICE_MODULE_ID,
+    'name'          => $name,
+    'configuration' => ['UnitID' => $unitID]
+]
+```
+
+---
+
+## 12. API-/Datenfluss-Learnings
+
+- **DataFlow-GUIDs über Kreuz verkabeln.** `implemented` des Parents == `parentRequirements`
+  des Childs (ein Kanal), und umgekehrt der zweite Kanal. Vertauschte GUIDs sind die
+  Hauptursache für "Instanz verbindet nicht" – am Ende genau prüfen, welche GUID Parent→Child
+  und welche Child→Parent trägt.
+- **Listen-verpackte Antworten (Mobile BFF).** Manche Cloud-Endpunkte liefern `[{...}]` statt
+  `{...}`. Vor dem Zugriff `if (isset($data[0])) { $data = $data[0]; }` einbauen.
+- **Nicht jedes Feld liegt, wo man denkt.** Felder können auf Geräte-Ebene liegen, andere in
+  verschachtelten Arrays (z.B. `settings: [{name,value}]`). Der Diagnose-Dump (11.2) klärt das
+  zweifelsfrei.
+- **Rate-Limits respektieren.** Energie-/Verbrauchsendpunkte reagieren empfindlich auf häufige
+  Abfragen (HTTP 429). Getrennte, längere Intervalle wählen (z.B. Status 60 s, Energie 30 min)
+  und Mindestwerte im Code erzwingen (`max(...)`).
+- **Custom-URI-Schemes bei OAuth.** `parse_url()` scheitert an Schemes wie `myapp://` – den
+  Code per Regex extrahieren (`/[?&]code=([^&\s#]+)/`). Zusätzlich JavaScript-Redirect-Seiten
+  und CSRF-Felder robust behandeln.
+
+---
+
+## 13. Tests & Code-Style (CI)
 
 - **Style:** PHP-CS-Fixer mit den Regeln aus https://github.com/symcon/StylePHP.
 - **Tests:** Basis auf https://github.com/symcon/SymconStubs. Die Stubs bieten eine
   Basis-Validierung, die library.json und module.json jedes Moduls prüft (sehr empfohlen).
 - Beide laufen automatisch via GitHub Actions (siehe `.github/workflows/`).
+- Vor jedem Release die CI **einmal grün** sehen (`symcon/action-style` +
+  `symcon/action-tests` mit `validateLibrary`).
 
 ---
 
-## 11. Workflow für Claude Code (token-effizient)
+## 14. Release-Hygiene (verbindlich)
+
+- **`build` in `library.json` bei jedem Release hochzählen** und synchron halten mit dem
+  jeweils neuesten Eintrag im CHANGELOG.
+- **`CHANGELOG.md`** pflegen: je Build ein datierter Eintrag, neuester oben; Build-Nummer
+  identisch zu `library.json`.
+- **`docs/module-store-versionsinfo.txt`**: reiner Klartext (`neu:` / `korrigiert:` /
+  `geändert:`), **max. 3000 Zeichen** (Feldlimit im Module Store). Bei Überschreitung ganze
+  Build-Blöcke vom Ende entfernen und den Hinweis "Ältere Historie: siehe CHANGELOG.md"
+  belassen.
+- **Modul-Store-Beschreibung** knapp halten, mit "Beinhaltete Module: …" am Ende.
+- **Keine Doppel-/Dev-Dateien in `docs/`** (nur Dokumentation). Dev-/Hilfsskripte gehören in
+  einen Punkt-Ordner (z.B. `.tools/`), der vom Module Control ohnehin ignoriert wird.
+- **GUIDs**: eindeutig je Bibliothek/Modul, korrektes Format – niemals Template-Platzhalter
+  ins Release übernehmen (Details siehe Abschnitt 3).
+
+---
+
+## 15. Workflow für Claude Code (token-effizient)
 
 Bevorzugter Single-Pass-Ablauf für ein neues Modul:
 1. Modultyp festlegen (meist type 3 Gerät).
@@ -335,7 +516,7 @@ markiert wird.
 
 ---
 
-## 12. Quellen (offiziell)
+## 16. Quellen (offiziell)
 
 - SDK (PHP): https://www.symcon.de/de/service/dokumentation/entwicklerbereich/sdk-tools/sdk-php/
 - Struktur: …/sdk-php/struktur/
