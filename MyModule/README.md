@@ -1,5 +1,7 @@
 # MyModule
 
+[![Symcon Version](https://img.shields.io/badge/Symcon%20Version-8.1%20%3E-green.svg)](https://www.symcon.de)
+
 [Hier in 1–2 Sätzen beschreiben, was das Modul tut.]
 
 ### Inhaltsverzeichnis
@@ -10,6 +12,7 @@
 4. [Einrichten der Instanzen in IP-Symcon](#4-einrichten-der-instanzen-in-ip-symcon)
 5. [Statusvariablen und Profile](#5-statusvariablen-und-profile)
 6. [PHP-Befehlsreferenz](#6-php-befehlsreferenz)
+7. [Fehlersuche](#7-fehlersuche)
 
 ### 1. Funktionsumfang
 
@@ -53,3 +56,16 @@ Führt eine sofortige Aktualisierung aus.
 
 `MYM_HelloWorld(int $InstanzID): string;`
 Gibt einen Beispieltext zurück.
+
+### 7. Fehlersuche
+
+Konkrete Symptom → Ursache → Lösung-Punkte (nicht nur eine Feature-Liste). Vorlage:
+
+| Symptom | Mögliche Ursache | Lösung |
+|---------|------------------|--------|
+| Instanz bleibt auf "Nicht konfiguriert" | Pflichtfeld (z.B. Hostname) leer | Wert in der Konfiguration setzen und übernehmen |
+| Status ab 200 (Fehler) | [projektspezifisch, z.B. Verbindung fehlgeschlagen] | [Ursache prüfen, z.B. Erreichbarkeit/Token] |
+| Keine aktuellen Werte | Timer/Intervall auf 0 oder zu groß | Aktualisierungsintervall setzen |
+
+Für die Detail-Diagnose das **Debug-Fenster** der Instanz öffnen (`SendDebug`-Ausgaben) –
+siehe auch die Diagnose-Muster in [`CLAUDE.md`](../CLAUDE.md) (Abschnitt 6 und 11).
