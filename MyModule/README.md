@@ -71,4 +71,4 @@ Konkrete Symptom → Ursache → Lösung-Punkte (nicht nur eine Feature-Liste). 
 | Keine aktuellen Werte | Timer/Intervall auf 0 oder zu groß | Aktualisierungsintervall setzen |
 
 Für die Detail-Diagnose das **Debug-Fenster** der Instanz öffnen (`SendDebug`-Ausgaben) –
-siehe auch die Diagnose-Muster in [`CLAUDE.md`](../CLAUDE.md) (Abschnitt 6 und 11).
+siehe auch die Diagnose-Muster in [`AGENTS.md`](../AGENTS.md) (Abschnitt 6 und 11).

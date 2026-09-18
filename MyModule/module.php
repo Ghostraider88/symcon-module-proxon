@@ -2,45 +2,39 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/../libs/VisuStyle.php';
+require_once __DIR__ . '/../libs/VisuState.php';
+require_once __DIR__ . '/../libs/VisuDiagnostic.php';
+require_once __DIR__ . '/../libs/VisuCapability.php';
+
 /**
  * MyModule
  *
- * - Klassenname MUSS identisch zum "name" in module.json sein (Leerzeichen entfernt).
- * - Basisklasse IPSModuleStrict (ab IP-Symcon 8.1). Type-Hints sind Pflicht.
- * - Exportierte Funktionen sind über den prefix erreichbar, z.B. MYM_HelloWorld($id);
+ * Das Beispiel zeigt den verbindlichen Visu-Vertrag des Modul-Templates:
+ * Zustandsmodell, Diagnose-Checkliste, Capability-Prüfung und Live-Update.
  */
 class MyModule extends IPSModuleStrict
 {
-    // Einmalig bei Erstellung der Instanz.
     public function Create(): void
     {
-        // Diese Zeile nicht entfernen.
         parent::Create();
+        $this->SetVisualizationType(1);
 
-        // --- Properties (Nutzer-Konfiguration; Namen == "name" in form.json) ---
         $this->RegisterPropertyString('Hostname', '');
         $this->RegisterPropertyInteger('Interval', 0); // Sekunden; 0 = Timer aus
-
-        // --- Attribute (interne Persistenz, nicht im Formular sichtbar) ---
         $this->RegisterAttributeString('LastResponse', '');
 
-        // --- Timer (Callback ruft eine eigene Public-Funktion mit der InstanzID auf) ---
-        $this->RegisterTimer('UpdateTimer', 0, 'MYM_Update($_IPS[\'TARGET\']);');
+        $this->RegisterTimer('UpdateTimer', 0, 'MYM_Update($_IPS['TARGET']);');
     }
 
-    // Bei jedem Speichern der Konfiguration (und beim Start nach KR_READY).
     public function ApplyChanges(): void
     {
-        // Diese Zeile nicht entfernen.
         parent::ApplyChanges();
 
-        // --- Statusvariable anlegen (Ident wird zum Wiederfinden genutzt, nicht der Name) ---
-        // Rückgabe ist bool (true = neu erstellt) -> ggf. Startwert setzen.
         if ($this->RegisterVariableString('Status', $this->Translate('Status'), '', 10)) {
             $this->SetValue('Status', '');
         }
 
-        // Beispiel: schaltbare Boolean-Variable mit moderner Variable Presentation.
         if ($this->RegisterVariableBoolean(
             'Switch',
             $this->Translate('Switch'),
@@ -50,25 +44,26 @@ class MyModule extends IPSModuleStrict
             $this->SetValue('Switch', false);
         }
         $this->MaintainAction('Switch', true);
+        $this->RegisterMessage($this->GetIDForIdent('Switch'), VM_UPDATE);
 
-        // --- Timer-Intervall aus Property übernehmen ---
         $interval = $this->ReadPropertyInteger('Interval');
         if ($interval < 0) {
             $this->SetTimerInterval('UpdateTimer', 0);
-            $this->SetStatus(202); // ungültige Konfiguration
+            $this->SetStatus(202);
             return;
         }
         $this->SetTimerInterval('UpdateTimer', $interval * 1000);
 
-        // --- Status der Instanz setzen (102 = ok/aktiv; ab 200 = Fehler) ---
-        if ($this->ReadPropertyString('Hostname') === '') {
-            $this->SetStatus(104); // inaktiv: noch nicht konfiguriert
-        } else {
-            $this->SetStatus(102); // aktiv
+        $this->SetStatus($this->ReadPropertyString('Hostname') === '' ? 104 : 102);
+    }
+
+    public function MessageSink(int $timestamp, int $senderID, int $message, array $data): void
+    {
+        if ($message === VM_UPDATE) {
+            $this->UpdateVisualizationValue($this->GetVisualizationPayload());
         }
     }
 
-    // Verarbeitet Schaltbefehle aus der Visualisierung / Aktionen.
     public function RequestAction(string $ident, mixed $value): void
     {
         switch ($ident) {
@@ -77,33 +72,134 @@ class MyModule extends IPSModuleStrict
                     throw new InvalidArgumentException('Switch expects a boolean value.');
                 }
                 $this->SetValue('Switch', $value);
-                // ... hier echtes Schalten am Gerät umsetzen ...
+                // In einem echten Modul hier den Gerätebefehl senden.
+                $this->UpdateVisualizationValue($this->GetVisualizationPayload());
                 break;
+
+            case 'RunSelfTest':
+                // Diagnose bleibt read-only: Es werden keine Reparaturbefehle ausgeführt.
+                $this->UpdateVisualizationValue($this->GetVisualizationPayload());
+                break;
+
             default:
                 throw new Exception('Invalid Ident: ' . $ident);
         }
     }
 
-    // Beispiel-Public-Funktion: erreichbar als MYM_Update($id) in PHP/JSON-RPC.
+    public function GetVisualizationTile(): string
+    {
+        return $this->RenderVisualization();
+    }
+
+    private function GetVisualizationPayload(): string
+    {
+        $isOn = (bool)$this->GetValue('Switch');
+        $state = $isOn ? 'active' : 'inactive';
+        $checks = $this->GetDiagnosticChecks();
+
+        return json_encode([
+            'type'       => 'delta',
+            'state'      => ModuleVisuState::cssState($state),
+            'stateLabel' => $isOn ? $this->Translate('Active') : $this->Translate('Inactive'),
+            'content'    => $this->RenderVisualizationContent($isOn, $checks),
+            'footer'     => date('d.m.Y H:i:s'),
+        ], JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    }
+
+    private function RenderVisualization(): string
+    {
+        $isOn = (bool)$this->GetValue('Switch');
+        $state = $isOn ? 'active' : 'inactive';
+        $checks = $this->GetDiagnosticChecks();
+
+        return ModuleVisuStyle::renderTile([
+            'title'      => $this->Translate('My Module'),
+            'icon'       => 'fa-light fa-cube',
+            'state'      => ModuleVisuState::cssState($state),
+            'stateLabel' => $isOn ? $this->Translate('Active') : $this->Translate('Inactive'),
+            'content'    => $this->RenderVisualizationContent($isOn, $checks),
+            'footer'     => date('d.m.Y H:i:s'),
+        ]);
+    }
+
+    private function RenderVisualizationContent(bool $isOn, array $checks): string
+    {
+        $state = $isOn ? 'active' : 'inactive';
+        $capabilities = ['switch'];
+        $content = ModuleVisuStyle::stateBlock(
+            $this->Translate('Current state'),
+            $isOn ? $this->Translate('Switched on') : $this->Translate('Switched off'),
+            $state
+        );
+
+        $content .= ModuleVisuCapability::when(
+            $capabilities,
+            'switch',
+            fn(): string => ModuleVisuStyle::section(
+                $this->Translate('Actions'),
+                '<div class="mvs-actions">'
+                . ModuleVisuStyle::button(
+                    $isOn ? $this->Translate('Switch off') : $this->Translate('Switch on'),
+                    'Switch',
+                    !$isOn
+                )
+                . '</div>'
+            )
+        );
+
+        $content .= ModuleVisuStyle::section(
+            $this->Translate('Diagnostics'),
+            ModuleVisuStyle::button($this->Translate('Run self-test'), 'RunSelfTest', true, true)
+            . '<div class="mvs-content" style="margin-top:8px">'
+            . ModuleVisuDiagnostic::renderList($checks)
+            . '</div>'
+        );
+
+        return $content;
+    }
+
+    private function GetDiagnosticChecks(): array
+    {
+        $hostname = trim($this->ReadPropertyString('Hostname'));
+
+        return [
+            ModuleVisuDiagnostic::check(
+                'configuration',
+                $this->Translate('Configuration'),
+                $hostname !== '',
+                $hostname === ''
+                    ? $this->Translate('Hostname is not configured.')
+                    : $this->Translate('Configuration is complete.'),
+                $hostname === '' ? $this->Translate('Enter a hostname in the configuration.') : '',
+                'not_configured'
+            ),
+            ModuleVisuDiagnostic::check(
+                'switch',
+                $this->Translate('Switch capability'),
+                ModuleVisuCapability::has(['switch'], 'switch'),
+                $this->Translate('Switch control is available.')
+            ),
+        ];
+    }
+
     public function Update(): void
     {
         $host = $this->ReadPropertyString('Hostname');
         if ($host === '') {
             $this->SetStatus(104);
+            $this->UpdateVisualizationValue($this->GetVisualizationPayload());
             return;
         }
 
         $this->SendDebug(__FUNCTION__, 'Updating from ' . $host, 0);
-
-        // ... Daten abrufen/verarbeiten ...
         $result = 'OK @ ' . date('H:i:s');
 
         $this->WriteAttributeString('LastResponse', $result);
         $this->SetValue('Status', $result);
         $this->SetStatus(102);
+        $this->UpdateVisualizationValue($this->GetVisualizationPayload());
     }
 
-    // Beispiel-Public-Funktion für den Test-Button im actions-Bereich der form.json.
     public function HelloWorld(): string
     {
         return $this->Translate('Hello World');
