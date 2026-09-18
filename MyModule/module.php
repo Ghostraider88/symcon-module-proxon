@@ -34,20 +34,30 @@ class MyModule extends IPSModuleStrict
         // Diese Zeile nicht entfernen.
         parent::ApplyChanges();
 
-        // --- Statusvariable anlegen (ident wird zum Wiederfinden genutzt, NICHT der Name) ---
+        // --- Statusvariable anlegen (Ident wird zum Wiederfinden genutzt, nicht der Name) ---
         // Rückgabe ist bool (true = neu erstellt) -> ggf. Startwert setzen.
         if ($this->RegisterVariableString('Status', $this->Translate('Status'), '', 10)) {
             $this->SetValue('Status', '');
         }
 
-        // Beispiel: schaltbare Boolean-Variable (löst RequestAction aus)
-        if ($this->RegisterVariableBoolean('Switch', $this->Translate('Switch'), '~Switch', 20)) {
+        // Beispiel: schaltbare Boolean-Variable mit moderner Variable Presentation.
+        if ($this->RegisterVariableBoolean(
+            'Switch',
+            $this->Translate('Switch'),
+            ['PRESENTATION' => VARIABLE_PRESENTATION_SWITCH],
+            20
+        )) {
             $this->SetValue('Switch', false);
         }
         $this->MaintainAction('Switch', true);
 
         // --- Timer-Intervall aus Property übernehmen ---
         $interval = $this->ReadPropertyInteger('Interval');
+        if ($interval < 0) {
+            $this->SetTimerInterval('UpdateTimer', 0);
+            $this->SetStatus(202); // ungültige Konfiguration
+            return;
+        }
         $this->SetTimerInterval('UpdateTimer', $interval * 1000);
 
         // --- Status der Instanz setzen (102 = ok/aktiv; ab 200 = Fehler) ---
@@ -63,6 +73,9 @@ class MyModule extends IPSModuleStrict
     {
         switch ($ident) {
             case 'Switch':
+                if (!is_bool($value)) {
+                    throw new InvalidArgumentException('Switch expects a boolean value.');
+                }
                 $this->SetValue('Switch', $value);
                 // ... hier echtes Schalten am Gerät umsetzen ...
                 break;
@@ -75,6 +88,11 @@ class MyModule extends IPSModuleStrict
     public function Update(): void
     {
         $host = $this->ReadPropertyString('Hostname');
+        if ($host === '') {
+            $this->SetStatus(104);
+            return;
+        }
+
         $this->SendDebug(__FUNCTION__, 'Updating from ' . $host, 0);
 
         // ... Daten abrufen/verarbeiten ...
@@ -82,6 +100,7 @@ class MyModule extends IPSModuleStrict
 
         $this->WriteAttributeString('LastResponse', $result);
         $this->SetValue('Status', $result);
+        $this->SetStatus(102);
     }
 
     // Beispiel-Public-Funktion für den Test-Button im actions-Bereich der form.json.

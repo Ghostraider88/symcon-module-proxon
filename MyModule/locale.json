@@ -9,7 +9,8 @@
             "Switch": "Schalter",
             "Active": "Aktiv",
             "Not configured yet": "Noch nicht konfiguriert",
-            "Connection failed": "Verbindung fehlgeschlagen"
+            "Connection failed": "Verbindung fehlgeschlagen",
+            "Invalid configuration": "Ungültige Konfiguration"
         }
     }
 }

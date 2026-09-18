@@ -25,10 +25,11 @@ Die ausführlichen Regeln stehen in [`CLAUDE.md`](CLAUDE.md).
 - [ ] `module.php`: Properties/Variablen/Timer in `Create()`/`ApplyChanges()`, Logik in
       eigenen Funktionen bzw. `RequestAction`.
 
-## 5. Tests & Style (optional, empfohlen)
-- [ ] Submodule einrichten (siehe `tests/README.md`):
-      `SymconStubs` → `tests/stubs`, `StylePHP` → `.style`.
-- [ ] Lokal `vendor/bin/phpunit` ausführen.
+## 5. Tests & Style
+- [ ] Submodule initialisieren: `git submodule update --init --recursive`
+- [ ] Lokale Tests ausführen: `vendor/bin/phpunit`
+- [ ] Bei Änderungen an Datenfluss, Aktionen oder Variable Presentations passende
+      Tests nach dem Muster von `SymconTest` ergänzen.
 
 ## 6. In IP-Symcon einbinden
 - [ ] Module Control öffnen → Repository-URL hinzufügen.

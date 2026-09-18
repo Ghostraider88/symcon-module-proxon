@@ -10,7 +10,7 @@
 2. [Voraussetzungen](#2-voraussetzungen)
 3. [Software-Installation](#3-software-installation)
 4. [Einrichten der Instanzen in IP-Symcon](#4-einrichten-der-instanzen-in-ip-symcon)
-5. [Statusvariablen und Profile](#5-statusvariablen-und-profile)
+5. [Statusvariablen und Presentations](#5-statusvariablen-und-presentations)
 6. [PHP-Befehlsreferenz](#6-php-befehlsreferenz)
 7. [Fehlersuche](#7-fehlersuche)
 
@@ -39,7 +39,9 @@ __Konfigurationsseite:__
 | Hostname | Adresse des Zielgeräts               |
 | Interval | Aktualisierungsintervall in Sekunden |
 
-### 5. Statusvariablen und Profile
+### 5. Statusvariablen und Presentations
+
+`Switch` verwendet die moderne Variable Presentation `VARIABLE_PRESENTATION_SWITCH`.
 
 Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu
 Fehlfunktionen führen.
@@ -65,6 +67,7 @@ Konkrete Symptom → Ursache → Lösung-Punkte (nicht nur eine Feature-Liste). 
 |---------|------------------|--------|
 | Instanz bleibt auf "Nicht konfiguriert" | Pflichtfeld (z.B. Hostname) leer | Wert in der Konfiguration setzen und übernehmen |
 | Status ab 200 (Fehler) | [projektspezifisch, z.B. Verbindung fehlgeschlagen] | [Ursache prüfen, z.B. Erreichbarkeit/Token] |
+| Status 202 (ungültige Konfiguration) | Ein numerischer Parameter liegt außerhalb seines zulässigen Bereichs | Konfiguration prüfen und erneut übernehmen |
 | Keine aktuellen Werte | Timer/Intervall auf 0 oder zu groß | Aktualisierungsintervall setzen |
 
 Für die Detail-Diagnose das **Debug-Fenster** der Instanz öffnen (`SendDebug`-Ausgaben) –
