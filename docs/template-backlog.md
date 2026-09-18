@@ -3,7 +3,7 @@
 > **Kein verbindliches Regelwerk.** Diese Datei sammelt Ideen, um dieses Modul-Template
 > weiter auszubauen – abgeleitet aus dem Vergleich mit ausgereiften Community-Modulen
 > (z.B. bumaas/SymconHomeAssistant) und den Learnings aus einem realen Cloud-Anbindungs-
-> Modul. Die harten Vorgaben stehen in [`CLAUDE.md`](../CLAUDE.md); hier stehen nur
+> Modul. Die harten Vorgaben stehen in [`AGENTS.md`](../AGENTS.md); hier stehen nur
 > optionale „Nice to have"-Punkte. Umsetzung nach Bedarf und nur, wenn das Template dadurch
 > nicht überfrachtet wird.
 
@@ -18,7 +18,7 @@
    - Kommen Daten an (letzter Empfangszeitpunkt)?
    - Subscription / Polling aktiv?
 
-   Die Muster „API-Diagnose-Button" und „Alle Daten abrufen" (siehe CLAUDE.md 11.2) sind
+   Die Muster „API-Diagnose-Button" und „Alle Daten abrufen" (siehe AGENTS.md 11.2) sind
    bereits Vorstufen davon. Als leere Check-Struktur im Template mitliefern.
 
 2. **Diagnosefelder direkt im Formular** (status-Bereich / Label): letzte Fehlermeldung,

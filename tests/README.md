@@ -20,6 +20,10 @@ vendor/bin/phpunit
 ```
 
 
+Die Symcon-Test-Action verwendet ausdrücklich tests/phpunit.xml. Die Datei liegt deshalb zusätzlich zur lokalen Root-Konfiguration phpunit.xml im Template. Neue Tests und Validator-Aufrufe werden dort automatisch über den CI-Aufruf phpunit tests --configuration tests/phpunit.xml gefunden.
+
+Der Style-Workflow prüft außerdem alle JSON-Dateien mit .style/json-check.php. JSON-Fixtures müssen daher im PHP-Format JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION formatiert sein: vier Leerzeichen Einrückung, keine kompakten Inline-Objekte und keine manuelle Änderung der numerischen Schreibweise. Lokal kann der Checker mit php .style/json-check.php geprüft und mit php .style/json-check.php fix . repariert werden.
+
 Falls PHPUnit nicht über das eigene Entwicklungs-Setup bereitgestellt wird, kann die
 CI-Aktion `symcon/action-tests` verwendet werden. Vor einem Template-Update sollte der
 Commit von `tests/stubs` auf dem aktuellen `master` von

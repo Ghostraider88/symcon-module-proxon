@@ -1,6 +1,6 @@
-# CLAUDE.md – IP-Symcon Modulentwicklung
+# AGENTS.md – IP-Symcon Modulentwicklung
 
-> Diese Datei wird von Claude Code automatisch gelesen. Sie enthält alle verbindlichen
+> Diese Datei wird von Codex automatisch gelesen. Sie enthält alle verbindlichen
 > Regeln, Strukturvorgaben und Best Practices für den Bau eines Custom-Moduls für die
 > IP-Symcon Hausautomatisierungssoftware. **Lies sie vollständig, bevor du Code änderst.**
 
@@ -494,7 +494,7 @@ Konfigurators – kein manuelles `ConnectParent` nötig:
 
 ---
 
-## 15. Workflow für Claude Code (token-effizient)
+## 15. Workflow für Codex
 
 Bevorzugter Single-Pass-Ablauf für ein neues Modul:
 1. Modultyp festlegen (meist type 3 Gerät).

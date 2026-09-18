@@ -1,7 +1,7 @@
 # SETUP – Template für ein neues Modul verwenden
 
 Kurze Checkliste, wenn du dieses Template als Basis für ein neues Symcon-Modul nimmst.
-Die ausführlichen Regeln stehen in [`CLAUDE.md`](CLAUDE.md).
+Die ausführlichen Regeln stehen in [`AGENTS.md`](AGENTS.md).
 
 ## 1. Repository anlegen
 - [ ] Dieses Template als GitHub-Template-Repo markieren (Settings → "Template repository")
