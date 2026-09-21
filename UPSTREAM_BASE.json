@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/symcon/Proxon",
+  "source_branch": "master",
+  "source_commit": "785238a633faf33d9ee9bbfd2014e3e5ac82956b",
+  "source_author": "Symcon GmbH",
+  "import_strategy": "copy upstream master into our repository; never develop or commit in upstream repository",
+  "target_repository": "our PROXON repository",
+  "imported_for": "Greenfield-first PROXON FWT 2.0/3.0 and T300-behind-FWT extension",
+  "baseline_modules": [
+    "Proxon 1 Panel",
+    "Proxon 2 Central",
+    "Proxon 2 Configurator",
+    "Proxon 2 Zone"
+  ]
+}

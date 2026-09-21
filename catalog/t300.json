@@ -1,0 +1,3065 @@
+[
+  {
+    "key": "t300.holding.2000",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2000,
+    "function_read": 3,
+    "parameter": "Normal Wassertemperatur",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "*10",
+      "multiplier": 0.1,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2000:8",
+      "pdf:t300:holding:2000:p11r46"
+    ],
+    "conflicts": [
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      },
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 0.1,
+            "offset": 0.0,
+            "source_token": "*10",
+            "status": "normalized"
+          },
+          {
+            "multiplier": 0.1,
+            "offset": 0.0,
+            "source_token": "/10",
+            "status": "normalized"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2001",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2001,
+    "function_read": 3,
+    "parameter": "E-Heiz AUS-AN (0-1)",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "AUS/AN",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2001:9",
+      "pdf:t300:holding:2001:p11r47"
+    ],
+    "conflicts": [
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2002",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2002,
+    "function_read": 3,
+    "parameter": "Betriebsart 0=AUS 1=Bedarf",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2002:7",
+      "pdf:t300:holding:2002:p11r45"
+    ],
+    "conflicts": [
+      {
+        "field": "parameter",
+        "values": [
+          "betriebsart (0=aus 1=bedarf 2=lf1 3=lf2",
+          "betriebsart 0=aus 1=bedarf"
+        ]
+      },
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2003",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2003,
+    "function_read": 3,
+    "parameter": "Temperatur E-Heiz",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "*10",
+      "multiplier": 0.1,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2003:17",
+      "pdf:t300:holding:2003:p11r55"
+    ],
+    "conflicts": [
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      },
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 0.1,
+            "offset": 0.0,
+            "source_token": "*10",
+            "status": "normalized"
+          },
+          {
+            "multiplier": 0.1,
+            "offset": 0.0,
+            "source_token": "/10",
+            "status": "normalized"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2006",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2006,
+    "function_read": 3,
+    "parameter": "Sprache",
+    "access": "R/W",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:holding:2006:18"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2008",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2008,
+    "function_read": 3,
+    "parameter": "Sommerzeit 0=deaktivirt 1=aktivirt",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "AUS/AN",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2008:16",
+      "pdf:t300:holding:2008:p11r54"
+    ],
+    "conflicts": [
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2009",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2009,
+    "function_read": 3,
+    "parameter": "PauseSchirmZeit 0=Aus",
+    "access": "R/W",
+    "data_type": "uint16",
+    "unit": "AUS/AN",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:holding:2009:19"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2010",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2010,
+    "function_read": 3,
+    "parameter": "PV Funktion",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "AUS/AN",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2010:21",
+      "pdf:t300:holding:2010:p12r2"
+    ],
+    "conflicts": [
+      {
+        "field": "parameter",
+        "values": [
+          "pv funktio",
+          "pv funktion"
+        ]
+      },
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2025",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2025,
+    "function_read": 3,
+    "parameter": "Legionellafunktion",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "AUS/AN",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2025:20",
+      "pdf:t300:holding:2025:p11r56"
+    ],
+    "conflicts": [
+      {
+        "field": "parameter",
+        "values": [
+          "legionellafunktio",
+          "legionellafunktion"
+        ]
+      },
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2150",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2150,
+    "function_read": 3,
+    "parameter": "Stunde",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "Stunde",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2150:10",
+      "pdf:t300:holding:2150:p11r48"
+    ],
+    "conflicts": [
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2151",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2151,
+    "function_read": 3,
+    "parameter": "Minute",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "Minuten",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2151:11",
+      "pdf:t300:holding:2151:p11r49"
+    ],
+    "conflicts": [
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2152",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2152,
+    "function_read": 3,
+    "parameter": "Wochentag",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2152:12",
+      "pdf:t300:holding:2152:p11r50"
+    ],
+    "conflicts": [
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2153",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2153,
+    "function_read": 3,
+    "parameter": "Tag",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2153:13",
+      "pdf:t300:holding:2153:p11r51"
+    ],
+    "conflicts": [
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2154",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2154,
+    "function_read": 3,
+    "parameter": "Monat",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "Monate",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2154:14",
+      "pdf:t300:holding:2154:p11r52"
+    ],
+    "conflicts": [
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.holding.2155",
+    "device": "t300",
+    "register_space": "holding",
+    "address": 2155,
+    "function_read": 3,
+    "parameter": "Jahr",
+    "access": "0",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:holding:2155:15",
+      "pdf:t300:holding:2155:p11r53"
+    ],
+    "conflicts": [
+      {
+        "field": "access",
+        "values": [
+          "0",
+          "r/w"
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.800",
+    "device": "t300",
+    "register_space": "input",
+    "address": 800,
+    "function_read": 4,
+    "parameter": "ADCvalueCH6",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:800:8"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.801",
+    "device": "t300",
+    "register_space": "input",
+    "address": 801,
+    "function_read": 4,
+    "parameter": "ADCvalueCH7",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:801:9"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.802",
+    "device": "t300",
+    "register_space": "input",
+    "address": 802,
+    "function_read": 4,
+    "parameter": "ADCvalueCH8",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": null,
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:802:10"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.803",
+    "device": "t300",
+    "register_space": "input",
+    "address": 803,
+    "function_read": 4,
+    "parameter": "ADCvalueCH9",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:803:11"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.804",
+    "device": "t300",
+    "register_space": "input",
+    "address": 804,
+    "function_read": 4,
+    "parameter": "ADCvalueCH10",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:804:12"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.805",
+    "device": "t300",
+    "register_space": "input",
+    "address": 805,
+    "function_read": 4,
+    "parameter": "ADCvalueCH11",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:805:13"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.806",
+    "device": "t300",
+    "register_space": "input",
+    "address": 806,
+    "function_read": 4,
+    "parameter": "ADCvalueCH3",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:806:14"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.807",
+    "device": "t300",
+    "register_space": "input",
+    "address": 807,
+    "function_read": 4,
+    "parameter": "ADCvalueCH12",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:807:15"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.808",
+    "device": "t300",
+    "register_space": "input",
+    "address": 808,
+    "function_read": 4,
+    "parameter": "ADCvalueCH15",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:808:16"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.809",
+    "device": "t300",
+    "register_space": "input",
+    "address": 809,
+    "function_read": 4,
+    "parameter": "ADCvalueCH13",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:809:17"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.810",
+    "device": "t300",
+    "register_space": "input",
+    "address": 810,
+    "function_read": 4,
+    "parameter": "ADCvalueCH14",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:810:18"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.811",
+    "device": "t300",
+    "register_space": "input",
+    "address": 811,
+    "function_read": 4,
+    "parameter": "T5 Vor Verdampfer",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "*10",
+      "multiplier": 0.1,
+      "offset": -100.0,
+      "status": "source-specific"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:input:811:19",
+      "pdf:t300:input:811:p15r31"
+    ],
+    "conflicts": [
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 0.1,
+            "offset": -100.0,
+            "source_token": "*10",
+            "status": "source-specific"
+          },
+          {
+            "multiplier": 0.1,
+            "offset": -100.0,
+            "source_token": "/10",
+            "status": "source-specific"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.812",
+    "device": "t300",
+    "register_space": "input",
+    "address": 812,
+    "function_read": 4,
+    "parameter": "T6 Verdampfer",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "*10",
+      "multiplier": 0.1,
+      "offset": -100.0,
+      "status": "source-specific"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:input:812:20",
+      "pdf:t300:input:812:p15r32"
+    ],
+    "conflicts": [
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 0.1,
+            "offset": -100.0,
+            "source_token": "*10",
+            "status": "source-specific"
+          },
+          {
+            "multiplier": 0.1,
+            "offset": -100.0,
+            "source_token": "/10",
+            "status": "source-specific"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.813",
+    "device": "t300",
+    "register_space": "input",
+    "address": 813,
+    "function_read": 4,
+    "parameter": "T20 Behälter Unten",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "*10",
+      "multiplier": 0.1,
+      "offset": -100.0,
+      "status": "source-specific"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:input:813:21",
+      "pdf:t300:input:813:p15r33"
+    ],
+    "conflicts": [
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 0.1,
+            "offset": -100.0,
+            "source_token": "*10",
+            "status": "source-specific"
+          },
+          {
+            "multiplier": 0.1,
+            "offset": -100.0,
+            "source_token": "/10",
+            "status": "source-specific"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.814",
+    "device": "t300",
+    "register_space": "input",
+    "address": 814,
+    "function_read": 4,
+    "parameter": "T21 Behälter Mitte",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "*10",
+      "multiplier": 0.1,
+      "offset": -100.0,
+      "status": "source-specific"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:input:814:22",
+      "pdf:t300:input:814:p16r2"
+    ],
+    "conflicts": [
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 0.1,
+            "offset": -100.0,
+            "source_token": "*10",
+            "status": "source-specific"
+          },
+          {
+            "multiplier": 0.1,
+            "offset": -100.0,
+            "source_token": "/10",
+            "status": "source-specific"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.815",
+    "device": "t300",
+    "register_space": "input",
+    "address": 815,
+    "function_read": 4,
+    "parameter": "T13 Kompressor",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "/10",
+      "multiplier": 0.1,
+      "offset": -100.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:815:23"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.816",
+    "device": "t300",
+    "register_space": "input",
+    "address": 816,
+    "function_read": 4,
+    "parameter": "T11 Sauggas nach Verdampfer",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "/10",
+      "multiplier": 0.1,
+      "offset": -100.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:816:24"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.817",
+    "device": "t300",
+    "register_space": "input",
+    "address": 817,
+    "function_read": 4,
+    "parameter": "T9 Extern Fühler",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "/10",
+      "multiplier": 0.1,
+      "offset": -100.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:817:25"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.818",
+    "device": "t300",
+    "register_space": "input",
+    "address": 818,
+    "function_read": 4,
+    "parameter": "P14 ND. Verdampfer",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "bar",
+    "scale": {
+      "source_token": "/100",
+      "multiplier": 0.01,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:818:26"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.819",
+    "device": "t300",
+    "register_space": "input",
+    "address": 819,
+    "function_read": 4,
+    "parameter": "P19 Druckdiff. Abtau",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Pa",
+    "scale": {
+      "source_token": "/100",
+      "multiplier": 0.01,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:819:27"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.820",
+    "device": "t300",
+    "register_space": "input",
+    "address": 820,
+    "function_read": 4,
+    "parameter": "E-ventil Posision",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:820:28"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.821",
+    "device": "t300",
+    "register_space": "input",
+    "address": 821,
+    "function_read": 4,
+    "parameter": "StepSetpointPosision",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:821:29"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.822",
+    "device": "t300",
+    "register_space": "input",
+    "address": 822,
+    "function_read": 4,
+    "parameter": "StepMicroStepPos",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:822:30"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.823",
+    "device": "t300",
+    "register_space": "input",
+    "address": 823,
+    "function_read": 4,
+    "parameter": "StepState",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:823:31"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.824",
+    "device": "t300",
+    "register_space": "input",
+    "address": 824,
+    "function_read": 4,
+    "parameter": "R2:Kompressor",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "*1",
+    "scale": {
+      "source_token": "0",
+      "multiplier": null,
+      "offset": 0.0,
+      "status": "unparsed"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:input:824:32",
+      "pdf:t300:input:824:p16r3"
+    ],
+    "conflicts": [
+      {
+        "field": "unit",
+        "values": [
+          "*1",
+          "aus/an"
+        ]
+      },
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 1.0,
+            "offset": 0.0,
+            "source_token": "*1",
+            "status": "normalized"
+          },
+          {
+            "multiplier": null,
+            "offset": 0.0,
+            "source_token": "0",
+            "status": "unparsed"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.825",
+    "device": "t300",
+    "register_space": "input",
+    "address": 825,
+    "function_read": 4,
+    "parameter": "R3:Solar",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "*1",
+    "scale": {
+      "source_token": "0",
+      "multiplier": null,
+      "offset": 0.0,
+      "status": "unparsed"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:input:825:33",
+      "pdf:t300:input:825:p16r4"
+    ],
+    "conflicts": [
+      {
+        "field": "unit",
+        "values": [
+          "*1",
+          "aus/an"
+        ]
+      },
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 1.0,
+            "offset": 0.0,
+            "source_token": "*1",
+            "status": "normalized"
+          },
+          {
+            "multiplier": null,
+            "offset": 0.0,
+            "source_token": "0",
+            "status": "unparsed"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.826",
+    "device": "t300",
+    "register_space": "input",
+    "address": 826,
+    "function_read": 4,
+    "parameter": "R4:E-Heiz",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "*1",
+    "scale": {
+      "source_token": "0",
+      "multiplier": null,
+      "offset": 0.0,
+      "status": "unparsed"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:input:826:34",
+      "pdf:t300:input:826:p16r5"
+    ],
+    "conflicts": [
+      {
+        "field": "unit",
+        "values": [
+          "*1",
+          "aus/an"
+        ]
+      },
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 1.0,
+            "offset": 0.0,
+            "source_token": "*1",
+            "status": "normalized"
+          },
+          {
+            "multiplier": null,
+            "offset": 0.0,
+            "source_token": "0",
+            "status": "unparsed"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.827",
+    "device": "t300",
+    "register_space": "input",
+    "address": 827,
+    "function_read": 4,
+    "parameter": "R5:Ventilator",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "*1",
+    "scale": {
+      "source_token": "0",
+      "multiplier": null,
+      "offset": 0.0,
+      "status": "unparsed"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:input:827:35",
+      "pdf:t300:input:827:p16r6"
+    ],
+    "conflicts": [
+      {
+        "field": "unit",
+        "values": [
+          "*1",
+          "aus/an"
+        ]
+      },
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 1.0,
+            "offset": 0.0,
+            "source_token": "*1",
+            "status": "normalized"
+          },
+          {
+            "multiplier": null,
+            "offset": 0.0,
+            "source_token": "0",
+            "status": "unparsed"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.828",
+    "device": "t300",
+    "register_space": "input",
+    "address": 828,
+    "function_read": 4,
+    "parameter": "R6:Abtau",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "*1",
+    "scale": {
+      "source_token": "0",
+      "multiplier": null,
+      "offset": 0.0,
+      "status": "unparsed"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:input:828:36",
+      "pdf:t300:input:828:p16r7"
+    ],
+    "conflicts": [
+      {
+        "field": "unit",
+        "values": [
+          "*1",
+          "aus/an"
+        ]
+      },
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 1.0,
+            "offset": 0.0,
+            "source_token": "*1",
+            "status": "normalized"
+          },
+          {
+            "multiplier": null,
+            "offset": 0.0,
+            "source_token": "0",
+            "status": "unparsed"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.829",
+    "device": "t300",
+    "register_space": "input",
+    "address": 829,
+    "function_read": 4,
+    "parameter": "Verdampfertemperatur (Druck)",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "/10",
+      "multiplier": 0.1,
+      "offset": -100.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:829:37"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.830",
+    "device": "t300",
+    "register_space": "input",
+    "address": 830,
+    "function_read": 4,
+    "parameter": "Delta Sauggas Verdampfer Temp",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "/10",
+      "multiplier": 0.1,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:830:38"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.831",
+    "device": "t300",
+    "register_space": "input",
+    "address": 831,
+    "function_read": 4,
+    "parameter": "Nou_used",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:831:39"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.832",
+    "device": "t300",
+    "register_space": "input",
+    "address": 832,
+    "function_read": 4,
+    "parameter": "HotAirRestrictedCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:832:40"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.833",
+    "device": "t300",
+    "register_space": "input",
+    "address": 833,
+    "function_read": 4,
+    "parameter": "CompressorState",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:833:41"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.834",
+    "device": "t300",
+    "register_space": "input",
+    "address": 834,
+    "function_read": 4,
+    "parameter": "NotBetrieb",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:834:42"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.835",
+    "device": "t300",
+    "register_space": "input",
+    "address": 835,
+    "function_read": 4,
+    "parameter": "WP_AbtauRestrictedCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:835:43"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.836",
+    "device": "t300",
+    "register_space": "input",
+    "address": 836,
+    "function_read": 4,
+    "parameter": "WP_StateTimer",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:836:44"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.837",
+    "device": "t300",
+    "register_space": "input",
+    "address": 837,
+    "function_read": 4,
+    "parameter": "AbtauState",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:837:45"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.838",
+    "device": "t300",
+    "register_space": "input",
+    "address": 838,
+    "function_read": 4,
+    "parameter": "Ventilator Geschwindigkeit",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "%",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:838:46"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.839",
+    "device": "t300",
+    "register_space": "input",
+    "address": 839,
+    "function_read": 4,
+    "parameter": "AbtauMaxTimeLeft",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:839:47"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.840",
+    "device": "t300",
+    "register_space": "input",
+    "address": 840,
+    "function_read": 4,
+    "parameter": "AbtauWaitTime",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:840:48"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.841",
+    "device": "t300",
+    "register_space": "input",
+    "address": 841,
+    "function_read": 4,
+    "parameter": "KalteBetriebCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:841:49"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.842",
+    "device": "t300",
+    "register_space": "input",
+    "address": 842,
+    "function_read": 4,
+    "parameter": "RressorstatFehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:842:50"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.843",
+    "device": "t300",
+    "register_space": "input",
+    "address": 843,
+    "function_read": 4,
+    "parameter": "ModBusErrorDisplayCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:843:51"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.844",
+    "device": "t300",
+    "register_space": "input",
+    "address": 844,
+    "function_read": 4,
+    "parameter": "VentilatorFehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:844:52"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.845",
+    "device": "t300",
+    "register_space": "input",
+    "address": 845,
+    "function_read": 4,
+    "parameter": "KompTempFehlerNo4",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:845:53"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.846",
+    "device": "t300",
+    "register_space": "input",
+    "address": 846,
+    "function_read": 4,
+    "parameter": "P14DrukFehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:846:54"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.847",
+    "device": "t300",
+    "register_space": "input",
+    "address": 847,
+    "function_read": 4,
+    "parameter": "HourCntR2LowWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:847:55"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.848",
+    "device": "t300",
+    "register_space": "input",
+    "address": 848,
+    "function_read": 4,
+    "parameter": "HourCntR2HiWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:848:56"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.849",
+    "device": "t300",
+    "register_space": "input",
+    "address": 849,
+    "function_read": 4,
+    "parameter": "HourCntR3LowWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:849:57"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.850",
+    "device": "t300",
+    "register_space": "input",
+    "address": 850,
+    "function_read": 4,
+    "parameter": "HourCntR3HiWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:850:58"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.851",
+    "device": "t300",
+    "register_space": "input",
+    "address": 851,
+    "function_read": 4,
+    "parameter": "HourCntR4LowWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:851:59"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.852",
+    "device": "t300",
+    "register_space": "input",
+    "address": 852,
+    "function_read": 4,
+    "parameter": "HourCntR4HiWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:852:60"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.853",
+    "device": "t300",
+    "register_space": "input",
+    "address": 853,
+    "function_read": 4,
+    "parameter": "HourCntR5LowWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:853:61"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.854",
+    "device": "t300",
+    "register_space": "input",
+    "address": 854,
+    "function_read": 4,
+    "parameter": "HourCntR5HiWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:854:62"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.855",
+    "device": "t300",
+    "register_space": "input",
+    "address": 855,
+    "function_read": 4,
+    "parameter": "HourCntR6LowWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:855:63"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.856",
+    "device": "t300",
+    "register_space": "input",
+    "address": 856,
+    "function_read": 4,
+    "parameter": "HourCntR6HiWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:856:64"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.857",
+    "device": "t300",
+    "register_space": "input",
+    "address": 857,
+    "function_read": 4,
+    "parameter": "FilterCntLowWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:857:65"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.858",
+    "device": "t300",
+    "register_space": "input",
+    "address": 858,
+    "function_read": 4,
+    "parameter": "FilterCntHiWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:858:66"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.859",
+    "device": "t300",
+    "register_space": "input",
+    "address": 859,
+    "function_read": 4,
+    "parameter": "LegionallaCntLowWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:859:67"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.860",
+    "device": "t300",
+    "register_space": "input",
+    "address": 860,
+    "function_read": 4,
+    "parameter": "LegionallaCntHiWord",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:860:68"
+    ],
+    "conflicts": [],
+    "notes": [
+      "u32 pair, low word followed by high word; source unit must be verified"
+    ]
+  },
+  {
+    "key": "t300.input.861",
+    "device": "t300",
+    "register_space": "input",
+    "address": 861,
+    "function_read": 4,
+    "parameter": "FehlerList",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Binär",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:861:69"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.862",
+    "device": "t300",
+    "register_space": "input",
+    "address": 862,
+    "function_read": 4,
+    "parameter": "FanRPM",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "*1",
+    "scale": {
+      "source_token": "0",
+      "multiplier": null,
+      "offset": 0.0,
+      "status": "unparsed"
+    },
+    "confidence": "possible",
+    "sources": [
+      "xlsx:t300:input:862:70",
+      "pdf:t300:input:862:p16r8"
+    ],
+    "conflicts": [
+      {
+        "field": "unit",
+        "values": [
+          "*1",
+          "rpm"
+        ]
+      },
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 1.0,
+            "offset": 0.0,
+            "source_token": "*1",
+            "status": "normalized"
+          },
+          {
+            "multiplier": null,
+            "offset": 0.0,
+            "source_token": "0",
+            "status": "unparsed"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.863",
+    "device": "t300",
+    "register_space": "input",
+    "address": 863,
+    "function_read": 4,
+    "parameter": "ECO_NodeOnOff",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "AUS/AN",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:863:71"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.864",
+    "device": "t300",
+    "register_space": "input",
+    "address": 864,
+    "function_read": 4,
+    "parameter": "pid_max_vordamfer_reduktion",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:864:72"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.865",
+    "device": "t300",
+    "register_space": "input",
+    "address": 865,
+    "function_read": 4,
+    "parameter": "MaxTempWP_reduktion",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 1.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:865:73"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.868",
+    "device": "t300",
+    "register_space": "input",
+    "address": 868,
+    "function_read": 4,
+    "parameter": "NotEheizFreigabeState",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "AUS/AN",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:868:74"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.869",
+    "device": "t300",
+    "register_space": "input",
+    "address": 869,
+    "function_read": 4,
+    "parameter": "P19FehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:869:75"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.870",
+    "device": "t300",
+    "register_space": "input",
+    "address": 870,
+    "function_read": 4,
+    "parameter": "P14FehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:870:76"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.871",
+    "device": "t300",
+    "register_space": "input",
+    "address": 871,
+    "function_read": 4,
+    "parameter": "T5_FehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:871:77"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.872",
+    "device": "t300",
+    "register_space": "input",
+    "address": 872,
+    "function_read": 4,
+    "parameter": "T6_FehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:872:78"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.873",
+    "device": "t300",
+    "register_space": "input",
+    "address": 873,
+    "function_read": 4,
+    "parameter": "T20_FehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:873:79"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.874",
+    "device": "t300",
+    "register_space": "input",
+    "address": 874,
+    "function_read": 4,
+    "parameter": "T21_FehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:874:80"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.875",
+    "device": "t300",
+    "register_space": "input",
+    "address": 875,
+    "function_read": 4,
+    "parameter": "T13_FehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:875:81"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.876",
+    "device": "t300",
+    "register_space": "input",
+    "address": 876,
+    "function_read": 4,
+    "parameter": "T11_FehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:876:82"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.877",
+    "device": "t300",
+    "register_space": "input",
+    "address": 877,
+    "function_read": 4,
+    "parameter": "T9_FehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:877:83"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.878",
+    "device": "t300",
+    "register_space": "input",
+    "address": 878,
+    "function_read": 4,
+    "parameter": "KompMaxTempFehlerCnt",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:878:84"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.879",
+    "device": "t300",
+    "register_space": "input",
+    "address": 879,
+    "function_read": 4,
+    "parameter": "CurrentSetpoint",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "/10",
+      "multiplier": 0.1,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:879:85"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.880",
+    "device": "t300",
+    "register_space": "input",
+    "address": 880,
+    "function_read": 4,
+    "parameter": "Number_of_restart",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:880:86"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.881",
+    "device": "t300",
+    "register_space": "input",
+    "address": 881,
+    "function_read": 4,
+    "parameter": "Firmware ver",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "/10",
+      "multiplier": 0.1,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:881:87"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.882",
+    "device": "t300",
+    "register_space": "input",
+    "address": 882,
+    "function_read": 4,
+    "parameter": "BehaelderAvg",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "*100",
+    "scale": {
+      "source_token": "0",
+      "multiplier": 0.01,
+      "offset": 0.0,
+      "status": "source-specific"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:input:882:88",
+      "pdf:t300:input:882:p16r9"
+    ],
+    "conflicts": [
+      {
+        "field": "unit",
+        "values": [
+          "*100",
+          "°c"
+        ]
+      },
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 0.01,
+            "offset": 0.0,
+            "source_token": "/100",
+            "status": "source-specific"
+          },
+          {
+            "multiplier": 0.01,
+            "offset": 0.0,
+            "source_token": "0",
+            "status": "source-specific"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.883",
+    "device": "t300",
+    "register_space": "input",
+    "address": 883,
+    "function_read": 4,
+    "parameter": "SuperHeatTemp",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "/100",
+      "multiplier": 0.01,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:883:89"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.884",
+    "device": "t300",
+    "register_space": "input",
+    "address": 884,
+    "function_read": 4,
+    "parameter": "AktMaxSuperHeat",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "/100",
+      "multiplier": 0.01,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:884:90"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.885",
+    "device": "t300",
+    "register_space": "input",
+    "address": 885,
+    "function_read": 4,
+    "parameter": "AktMinSuperHeat",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "/100",
+      "multiplier": 0.01,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:885:91"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.886",
+    "device": "t300",
+    "register_space": "input",
+    "address": 886,
+    "function_read": 4,
+    "parameter": "SuperHeatRef",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "/100",
+      "multiplier": 0.01,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:886:92"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.887",
+    "device": "t300",
+    "register_space": "input",
+    "address": 887,
+    "function_read": 4,
+    "parameter": "EventilStartPosTimeLeft",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:887:93"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.888",
+    "device": "t300",
+    "register_space": "input",
+    "address": 888,
+    "function_read": 4,
+    "parameter": "RegReleaseAfterAbtauRestTime",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "Sekunden",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:888:94"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.889",
+    "device": "t300",
+    "register_space": "input",
+    "address": 889,
+    "function_read": 4,
+    "parameter": "AfterAbtauSuperheatRestoreValue",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:889:95"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.890",
+    "device": "t300",
+    "register_space": "input",
+    "address": 890,
+    "function_read": 4,
+    "parameter": "AfterAbtauMaxSuperHeat",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "/100",
+      "multiplier": 0.01,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:890:96"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.891",
+    "device": "t300",
+    "register_space": "input",
+    "address": 891,
+    "function_read": 4,
+    "parameter": "ADCvalueCH13Avg",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:891:97"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.892",
+    "device": "t300",
+    "register_space": "input",
+    "address": 892,
+    "function_read": 4,
+    "parameter": "AbtauStartTemp",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "°C",
+    "scale": {
+      "source_token": "/10",
+      "multiplier": 0.1,
+      "offset": -100.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:892:98"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.896",
+    "device": "t300",
+    "register_space": "input",
+    "address": 896,
+    "function_read": 4,
+    "parameter": "Hitze Begrenzung",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:896:99"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.897",
+    "device": "t300",
+    "register_space": "input",
+    "address": 897,
+    "function_read": 4,
+    "parameter": "Kälte Begrenzung",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:897:100"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.898",
+    "device": "t300",
+    "register_space": "input",
+    "address": 898,
+    "function_read": 4,
+    "parameter": "PV T9 level",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "%",
+    "scale": {
+      "source_token": "*1",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "status": "normalized"
+    },
+    "confidence": "internal_unverified",
+    "sources": [
+      "xlsx:t300:input:898:101"
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "key": "t300.input.899",
+    "device": "t300",
+    "register_space": "input",
+    "address": 899,
+    "function_read": 4,
+    "parameter": "PV Eheiz AN",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "*1",
+    "scale": {
+      "source_token": "0",
+      "multiplier": null,
+      "offset": 0.0,
+      "status": "unparsed"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:input:899:102",
+      "pdf:t300:input:899:p16r10"
+    ],
+    "conflicts": [
+      {
+        "field": "unit",
+        "values": [
+          "*1",
+          "aus/an"
+        ]
+      },
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 1.0,
+            "offset": 0.0,
+            "source_token": "*1",
+            "status": "normalized"
+          },
+          {
+            "multiplier": null,
+            "offset": 0.0,
+            "source_token": "0",
+            "status": "unparsed"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  {
+    "key": "t300.input.900",
+    "device": "t300",
+    "register_space": "input",
+    "address": 900,
+    "function_read": 4,
+    "parameter": "PV WP AN",
+    "access": "R",
+    "data_type": "uint16",
+    "unit": "*1",
+    "scale": {
+      "source_token": "0",
+      "multiplier": null,
+      "offset": 0.0,
+      "status": "unparsed"
+    },
+    "confidence": "recommended",
+    "sources": [
+      "xlsx:t300:input:900:103",
+      "pdf:t300:input:900:p16r11"
+    ],
+    "conflicts": [
+      {
+        "field": "unit",
+        "values": [
+          "*1",
+          "aus/an"
+        ]
+      },
+      {
+        "field": "scale",
+        "values": [
+          {
+            "multiplier": 1.0,
+            "offset": 0.0,
+            "source_token": "*1",
+            "status": "normalized"
+          },
+          {
+            "multiplier": null,
+            "offset": 0.0,
+            "source_token": "0",
+            "status": "unparsed"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "catalog_version": "0.1.0-plan",
+  "addressing": "zero-based numeric suffix; never add 1, 30001, or 40001",
+  "spaces": {
+    "input": {
+      "read_function": 4
+    },
+    "holding": {
+      "read_function": 3,
+      "manufacturer_write_function": 6,
+      "write_status": "hardware_validation_required"
+    }
+  },
+  "source_priority": [
+    "current manufacturer PDF",
+    "XLSX register lists",
+    "brochure/app/community for context only"
+  ],
+  "default_serial": {
+    "baud": 19200,
+    "data_bits": 8,
+    "parity": "even",
+    "stop_bits": 1,
+    "default_slave": 41
+  },
+  "xlsx_prefix_warning": "XLSX 3x/4x tokens are inverted relative to the register sheet; sheet determines the space."
+}

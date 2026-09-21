@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "description": "Planning-time normalized PROXON register catalog",
+  "required": [
+    "device",
+    "register_space",
+    "address",
+    "function_read",
+    "parameter",
+    "confidence",
+    "sources"
+  ],
+  "confidence_values": [
+    "recommended",
+    "possible",
+    "internal_unverified"
+  ],
+  "scale_formula": "engineering = raw * multiplier + offset",
+  "provenance": "Source rows remain verbatim in source-registers-*.json and are linked by record_id."
+}

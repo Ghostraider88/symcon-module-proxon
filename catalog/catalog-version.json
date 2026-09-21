@@ -1,0 +1,18 @@
+{
+  "catalog_version": "0.1.0-plan",
+  "generated_at": "2026-09-18T20:17:14.562958+00:00",
+  "generator": ".tools/generate_register_catalog.py",
+  "counts": {
+    "xlsx_records": 822,
+    "pdf_records": 330,
+    "pdf_recommended": 268,
+    "pdf_possible": 62,
+    "fwt_unique_registers": 731,
+    "t300_unique_registers": 111
+  },
+  "source_sha256": {
+    "fwt_xlsx": "2D9DBED6E1727FE43B2CBC862D43A05D73B25C51B409998DD52A4F2B0E3E1915",
+    "t300_xlsx": "0CB8A356D2061A0B240B413FBBDACBD7B08F381F52D4586EAF6853DF03E8D6D9",
+    "glt_pdf": "4F6F6EB6712F950ED2AA1B2FDD1FCDA479BAA1564A79FBE500B0C86B41F2DD20"
+  }
+}

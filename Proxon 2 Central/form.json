@@ -1,0 +1,22 @@
+{
+    "elements": [
+        {
+            "name": "Interval",
+            "type": "NumberSpinner",
+            "caption": "Interval",
+            "suffix": "Seconds"
+        },
+        {
+            "name": "EnableT300",
+            "type": "CheckBox",
+            "caption": "Enable T300 behind FWT"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Button",
+            "caption": "Update Values",
+            "onClick": "PROXON_RequestStatus($id);"
+        }
+    ]
+}
