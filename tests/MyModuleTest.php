@@ -14,7 +14,7 @@ final class MyModuleTest extends TestCaseSymconValidation
 
     public function testValidateModule(): void
     {
-        $this->validateModule(__DIR__ . '/../MyModule');
+        $this->validateModule(__DIR__ . '/../docs/template/MyModule');
     }
 
     public function testStrictLifecycleAndAction(): void
@@ -65,7 +65,7 @@ final class MyModuleTest extends TestCaseSymconValidation
     private function getModuleConfiguration(): array
     {
         return json_decode(
-            file_get_contents(__DIR__ . '/../MyModule/module.json'),
+            file_get_contents(__DIR__ . '/../docs/template/MyModule/module.json'),
             true,
             512,
             JSON_THROW_ON_ERROR

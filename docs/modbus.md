@@ -86,7 +86,7 @@ Voreinstellung laut Unterlagen: Slave 41, 19200 Baud, 8E1. Eine in Community-Bei
 
 ## Maschinenlesbarer Katalog
 
-Der Ordner `../catalog` enthält:
+Der Ordner `catalog/` innerhalb dieses Dokumentationsbereichs enthält:
 
 - `source-registers-xlsx.json`: alle 822 Excel-Zeilen mit Rohfeldern,
 - `source-registers-pdf.json`: alle 330 PDF-Zeilen mit Rohfeldern,

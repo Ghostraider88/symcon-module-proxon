@@ -8,7 +8,7 @@ final class ProxonRegisterCatalogTest extends TestCase
 {
     public function testFwtCatalogLoadsExpectedRegisterCount(): void
     {
-        $catalog = new ProxonRegisterCatalog(dirname(__DIR__) . '/catalog', 'fwt');
+        $catalog = new ProxonRegisterCatalog(dirname(__DIR__) . '/docs/catalog', 'fwt');
 
         self::assertSame(731, $catalog->count());
         self::assertNotNull($catalog->find('holding', 16));
@@ -17,7 +17,7 @@ final class ProxonRegisterCatalogTest extends TestCase
 
     public function testCatalogPreservesConflicts(): void
     {
-        $catalog = new ProxonRegisterCatalog(dirname(__DIR__) . '/catalog', 'fwt');
+        $catalog = new ProxonRegisterCatalog(dirname(__DIR__) . '/docs/catalog', 'fwt');
 
         self::assertNotEmpty($catalog->conflicts());
         self::assertNotEmpty($catalog->find('holding', 16)['conflicts']);
@@ -25,7 +25,7 @@ final class ProxonRegisterCatalogTest extends TestCase
 
     public function testTemperatureScalingIsNormalized(): void
     {
-        $catalog = new ProxonRegisterCatalog(dirname(__DIR__) . '/catalog', 't300');
+        $catalog = new ProxonRegisterCatalog(dirname(__DIR__) . '/docs/catalog', 't300');
 
         self::assertSame(-100, $catalog->normalize('input', 811, 0));
         self::assertSame(0, $catalog->normalize('input', 811, 1000));

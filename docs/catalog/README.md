@@ -19,4 +19,4 @@ Das gilt insbesondere für FWT Holding 16 und 187. Alle Rohfelder sind in den be
 
 ## Reproduzierbarkeit
 
-`.tools/generate_register_catalog.py --source-dir <docs/source> --output-dir <catalog>` erzeugt die JSON-Dateien erneut. Der Lauf bricht ab, wenn die erwarteten 822 Excel-/330 PDF-Zeilen oder 268 grüne/62 gelbe Empfehlungen nicht erreicht werden.
+`.tools/generate_register_catalog.py --source-dir <docs/source> --output-dir <docs/catalog>` erzeugt die JSON-Dateien erneut. Der Lauf bricht ab, wenn die erwarteten 822 Excel-/330 PDF-Zeilen oder 268 grüne/62 gelbe Empfehlungen nicht erreicht werden.

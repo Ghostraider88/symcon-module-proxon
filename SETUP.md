@@ -15,7 +15,7 @@ Die ausführlichen Regeln stehen in [`AGENTS.md`](AGENTS.md).
 - Die Platzhalter `{00000000-...-0000000000XX}` dürfen NICHT bleiben.
 
 ## 3. Modul benennen
-- [ ] Ordner `MyModule/` umbenennen → exakter Klassenname (keine Leerzeichen).
+- [ ] Vorlage `docs/template/MyModule/` kopieren und in den exakten Klassennamen (keine Leerzeichen) umbenennen.
 - [ ] In `module.json`: `name` (mit ggf. Leerzeichen), `type`, `prefix`, `vendor` setzen.
 - [ ] In `module.php`: Klassenname == Ordnername; alle Vorkommen des Prefix `MYM_` anpassen.
 
@@ -36,5 +36,5 @@ Die ausführlichen Regeln stehen in [`AGENTS.md`](AGENTS.md).
 - [ ] Lokale Entwicklung: nach Code-Änderung IP-Symcon-Dienst kurz neu starten.
 
 ## 7. Dokumentation
-- [ ] `MyModule/README.md` ausfüllen (Funktionsumfang, Voraussetzungen, Variablen, PHP-Befehle).
+- [ ] Die neue Modul-README ausfüllen (Funktionsumfang, Voraussetzungen, Variablen, PHP-Befehle).
 - [ ] Wurzel-`README.md`: Modul in die Tabelle eintragen.

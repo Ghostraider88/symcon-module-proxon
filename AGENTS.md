@@ -44,7 +44,7 @@ unten genannten reservierten Ordner und Punkt-Ordner.
 <Repository-Wurzel = Bibliothek>
 ├── library.json          (PFLICHT, genau eine, in der Wurzel)
 ├── README.md             (empfohlen: Überblick + Verweis auf alle Module)
-├── MyModule/             (ein Modulordner; Name == Klassenname in module.php)
+├── Proxon 2 Central/     (Beispiel eines Modulordners; Name == Klassenname in module.php)
 │   ├── module.php        (PFLICHT)
 │   ├── module.json       (PFLICHT)
 │   ├── form.json         (optional: Konfigurationsseite)

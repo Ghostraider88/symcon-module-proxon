@@ -26,7 +26,7 @@
    hakt.
 
 3. **README-Struktur mit nummeriertem Inhaltsverzeichnis** (bereits teilweise im
-   `MyModule/README.md`): Betriebsarten → Module → Voraussetzungen → Installation →
+   `docs/template/MyModule/README.md`): Betriebsarten → Module → Voraussetzungen → Installation →
    Unterstützte Komponenten → Überblick (ASCII-Datenfluss) → Fehlersuche → FAQ.
 
 4. **Eigener „Fehlersuche"-Abschnitt** in jeder README mit konkreten
@@ -44,7 +44,7 @@
 
 ## Status im Template
 
-- Punkte 3–5 sind im `MyModule/README.md`-Skelett bereits generisch angelegt
+- Punkte 3–5 sind im `docs/template/MyModule/README.md`-Skelett bereits generisch angelegt
   (nummeriertes TOC, Fehlersuche-Abschnitt, Versions-Badge).
 - Punkt 1 (Splitter-Grundgerüst) ist bewusst **noch nicht** enthalten, um das Template
   schlank zu halten – bei Bedarf als eigener Modulordner (type 2) ergänzen.

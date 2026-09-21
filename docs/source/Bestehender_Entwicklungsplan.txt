@@ -249,10 +249,10 @@
 
   Versionierter Katalog, zum Beispiel:
 
-  catalog/fwt.json
-  catalog/t300.json
-  catalog/common.json
-  catalog/catalog-version.json
+  docs/catalog/fwt.json
+  docs/catalog/t300.json
+  docs/catalog/common.json
+  docs/catalog/catalog-version.json
 
   Die Excel-Dateien bleiben die fachliche Quelle. Im Modul wird zusätzlich festgehalten:
 
